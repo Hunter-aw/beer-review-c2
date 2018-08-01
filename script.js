@@ -13,7 +13,7 @@ function addCountry (country, review){
 function renderCountries () {
     MYLIST.empty();
     for (entry of COUNTRIES) {
-        MYLIST.append('<l1 class = "list-group-item fa fa-globe-americas">' + entry.myCountry + ': </li><br><span class ="font-weight-light">' + entry.myReview + '</span><br>')
+        MYLIST.append('<l1 class = "list-group-item fa fa-globe-americas">&nbsp' + entry.myCountry + ': </li><br><br><span class ="font-weight-light">' + entry.myReview + '</span><br>')
     }
 }
 
