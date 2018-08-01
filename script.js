@@ -2,10 +2,11 @@ const COUNTRIES = []
 let MYLIST = $('.country-list')
  
 
-function addCountry (country, review){
+function addCountry (country, review, rating){
     let newEntry = {
         myCountry: country,
-        myReview: review
+        myReview: review,
+        myRating: rating
     }
     COUNTRIES.push(newEntry)
 }
@@ -13,19 +14,20 @@ function addCountry (country, review){
 function renderCountries () {
     MYLIST.empty();
     for (entry of COUNTRIES) {
-        MYLIST.append('<l1 class = "list-group-item fa fa-globe-americas">&nbsp' + entry.myCountry + ': </li><br><br><span class ="font-weight-light">' + entry.myReview + '</span><br>')
+        MYLIST.append('<l1 class = "list-group-item fa fa-globe-americas">&nbsp' + entry.myCountry + ': </li><br><br><span class ="font-weight-light">' + entry.myReview + '</span><br><br><li>' + entry.myRating + ' Stars </li>')
     }
 }
 
 const clickPost = function() {
     let countryName = $('.country-input').val();
     let reviewName = $('.review-input').val();
-    addCountry(countryName, reviewName)
+    let ratingStar = $('.rating-input').val(); 
+    addCountry(countryName, reviewName, ratingStar)
     renderCountries()
 }
 
 
-$('.post-country').click(clickPost);
+// $('.post-country').click(clickPost);
 
 
 $(document).ready(function(){
