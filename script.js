@@ -26,9 +26,27 @@ const clickPost = function() {
     renderCountries()
 }
 
+const positiveSortPost = function() {
+    COUNTRIES.sort(function(a, b) {
+        return a.myRating - b.myRating;
+    })
+    renderCountries()
+    $(this).one("click", negativeSortPost);
+}
 
-// $('.post-country').click(clickPost);
+const negativeSortPost = function() {
+    COUNTRIES.sort(function(a, b) {
+        return -(a.myRating - b.myRating);
+    })
+    renderCountries()
+    $(this).one("click", positiveSortPost);
+}
 
+$(".sort-country").one("click", positiveSortPost);
+
+// const clickSort = function(){
+//     $('.sort-country').toggle(positiveSortPost(), negativeSortPost());
+// }
 
 $(document).ready(function(){
     $('.country-form').keypress(function(e){
